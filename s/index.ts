@@ -1,1 +1,8 @@
-const log = console.log
+
+
+export * from "./staticAnims.js"
+
+
+
+
+
