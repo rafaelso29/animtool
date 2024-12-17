@@ -1,0 +1,19 @@
+{
+  "name": "@lucafly/anim",
+  "version": "1.0.0",
+  "description": "A Tool for animating cameras, objects and meshes in your babylonJs App",
+  "main": "x/index.js",
+  "type": "module",
+  "types": "x/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babylonjs": "^7.40.3",
+    "typescript": "^5.7.2"
+  }
+}
