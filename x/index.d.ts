@@ -1,4 +1,1 @@
-declare const log: {
-    (...data: any[]): void;
-    (...data: any[]): void;
-};
+export * from "./staticAnims.js";
