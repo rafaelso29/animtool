@@ -15,8 +15,13 @@ export function crAnim(targetMesh: Mesh, targetProperty: any, animationType: ANI
             value: valueTo
         }
     ])
-
-    targetMesh.animations.push(anim as any)
+    if(targetMesh.animations.length) {
+        targetMesh.animations.push(anim as any)
+    }else{
+        targetMesh.animations = []
+        targetMesh.animations.push(anim as any)
+    }
+    
     return anim
 }
 
