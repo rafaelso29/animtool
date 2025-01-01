@@ -1,22 +1,24 @@
 {
-  "compilerOptions": {
-    "strict": true,
-    "rootDir": "s",
-    "outDir": "x",
-    "target": "ES2016",
-    "module": "ESNext",
-    "lib": ["es2023", "dom", "webworker"],
-    "esModuleInterop": true,
-    "moduleResolution": "node",
-    "experimentalDecorators": true,
-    "allowSyntheticDefaultImports": true,
-    "sourceMap": true,
-    "declaration": true,
-    "skipLibCheck": true
-  },
-  "include": [
-    "s/**/*.ts",
-    "s/**/*.js",
-  ],
-  "exclude": ["s/**/_*"]
+	"compilerOptions": {
+		"strict": true,
+		"target": "ES2016",
+		"module": "ESNext",
+		"moduleResolution": "node",
+		"rootDir": "./s",
+		"outDir": "./x",
+		"declaration": true,
+		"sourceMap": true,
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"skipLibCheck": true,
+		"lib": ["ESNext", "DOM"]
+	},
+	"include": [
+		"s/**/*.ts",
+		"s/**/*.js"
+	],
+	"exclude": [
+		"s/**/_*"
+	]
 }
+  

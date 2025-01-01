@@ -1,9 +1,14 @@
-import { Animation, Scene, Mesh } from "babylonjs"
+import { Animation, Scene, Mesh, FreeCamera } from "babylonjs"
 import { ANIM_TYPE } from "./enums.js"
 
 let defaultFps = 30
-export function crAnim(targetMesh: Mesh, targetProperty: any, animationType: ANIM_TYPE, valueFrom: any, valueTo: any){
-    const anim = new BABYLON.Animation(`animation`, targetProperty, defaultFps, animationType, Animation.ANIMATIONLOOPMODE_CYCLE)
+interface CamWithAnimationProps extends FreeCamera {
+    animations: Animation[];
+}
+
+export function createCamAnim(targetCamera: CamWithAnimationProps, targetProperty: any, animationType: ANIM_TYPE, valueFrom: any, valueTo: any): boolean | Animation{
+    if(targetCamera.animations) return false
+    const anim = new Animation(`animation`, targetProperty, defaultFps, animationType, Animation.ANIMATIONLOOPMODE_CYCLE)
 
     anim.setKeys([
         {
@@ -15,11 +20,12 @@ export function crAnim(targetMesh: Mesh, targetProperty: any, animationType: ANI
             value: valueTo
         }
     ])
-
-    targetMesh.animations.push(anim as any)
+    targetCamera.animations = targetCamera.animations || [];
+    targetCamera.animations.push(anim as any);
+    
     return anim
 }
 
-export function beginAnim(scene: Scene, targetMesh: Mesh, additionalSpd: number){
-    scene.beginAnimation(targetMesh, 0, defaultFps, false, additionalSpd ? 1 + additionalSpd : 1)
+export function beginAnim(scene: Scene, targetCamera: CamWithAnimationProps, additionalSpd: number){
+    scene.beginAnimation(targetCamera, 0, defaultFps, false, additionalSpd ? 1 + additionalSpd : 1)
 }
